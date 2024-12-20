@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Plugin Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Booking Plugin Demo</h1>
+        
+        <!-- Booking Plugin Container -->
+        <div id="booking-plugin"></div>
+    </div>
+
+    <!-- Documentation Section -->
+    <div class="documentation">
+        <h2>Frequently Asked Questions</h2>
+        
+        <div class="faq-item">
+            <button class="faq-question">How do I embed this plugin in my website?</button>
+            <div class="faq-answer">
+                <pre><code>&lt;!-- Add the CSS file -->
+&lt;link rel="stylesheet" href="style.css">
+
+&lt;!-- Add the container where you want the booking plugin -->
+&lt;div id="booking-plugin">&lt;/div>
+
+&lt;!-- Add the JavaScript file at the end of your body -->
+&lt;script src="script.js">&lt;/script></code></pre>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">How do I customize the plugin's appearance?</button>
+            <div class="faq-answer">
+                <p>The plugin uses CSS variables that you can override in your own stylesheet:</p>
+                <pre><code>:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #2c3e50;
+    --success-color: #27ae60;
+    --error-color: #e74c3c;
+    --background-color: #f5f6fa;
+    --text-color: #2c3e50;
+    --border-color: #dcdde1;
+}</code></pre>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">What browsers are supported?</button>
+            <div class="faq-answer">
+                <p>The plugin supports all modern browsers:</p>
+                <ul>
+                    <li>Chrome (latest)</li>
+                    <li>Firefox (latest)</li>
+                    <li>Safari (latest)</li>
+                    <li>Edge (latest)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">How do I connect to my own backend?</button>
+            <div class="faq-answer">
+                <p>Update the apiBaseUrl in script.js to point to your backend:</p>
+                <pre><code>this.apiBaseUrl = 'http://your-api-url/api';</code></pre>
+                <p>The plugin expects two endpoints:</p>
+                <ul>
+                    <li><code>/available_slots?date=YYYY-MM-DD</code> - GET request to fetch available slots</li>
+                    <li><code>/book_appointment</code> - POST request to create a booking</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // FAQ functionality
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
