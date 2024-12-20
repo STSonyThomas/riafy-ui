@@ -54,10 +54,15 @@ The plugin uses CSS variables for easy customization. You can override these var
 
 ## API Integration
 
-The plugin is prepared for API integration. Replace the following methods in `script.js` with your API calls:
+The plugin is configured to use the production API at `https://riafy-backend.onrender.com/api`. If you need to use a different backend, update the `apiBaseUrl` in `script.js`:
 
-- `fetchAvailableSlots()`: Fetch available time slots from your backend
-- `handleSubmit()`: Submit booking data to your backend
+```javascript
+this.apiBaseUrl = 'https://your-api-url/api';
+```
+
+The plugin expects two endpoints:
+- `GET /available_slots?date=YYYY-MM-DD`: Fetch available slots for a given date
+- `POST /book_appointment`: Create a new booking with name, phone_number, date, and time_slot
 
 ## Browser Support
 

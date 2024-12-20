@@ -1,7 +1,7 @@
 class BookingPlugin {
     constructor() {
         this.container = document.getElementById('booking-plugin');
-        this.apiBaseUrl = 'http://localhost:8000/api';
+        this.apiBaseUrl = 'https://riafy-backend.onrender.com/api';
         this.availableSlots = [];
         this.createUI();
         this.init();
